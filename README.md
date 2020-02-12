@@ -1,9 +1,4 @@
-# Exemplos do livro "Python - Escreva seus primeiros programas"
+# Copa Transparente
 
-Fórum de discussão - `http://forum.casadocodigo.com.br/`
 
-# Contato
-
-```
-felipecruz@gmail.com
-```
+Códigos de exemplo da copa transparente, aulas de Python
