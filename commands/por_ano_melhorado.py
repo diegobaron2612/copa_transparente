@@ -1,7 +1,7 @@
-def main():
+def contar_execucoes(caminho):
     totals = {}
 
-    with open("data/data/ExecucaoFinanceira.csv", "r") as data:
+    with open(caminho, "r") as data:
         for line in data:
             info = line.strip().split(";")
             year = int(info[8][-4:])
@@ -14,4 +14,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    contar_execucoes("data/data/ExecucaoFinanceira.csv")
