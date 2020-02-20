@@ -1,17 +1,31 @@
-def main():
-    # Solução dos alunos
-    dados1 = open("desafios/assets/dados_1.csv", "r")
-    dados2 = open("desafios/assets/dados_2.csv", "r")
+# coding: utf-8
 
-    lista1 = dados1.readlines()
-    lista2 = dados2.readlines()[1:]
-    lista3 = lista1 + lista2
-    dados3 = open("desafios/assets/dados_3.csv", "w")
-    dados3.writelines(lista3)
-    dados1.close()
-    dados2.close()
-    dados3.close()
-    return lista3
+
+def limpar_arquivo(arquivo):
+    with open(arquivo, "w") as f:
+        f.write("")
+
+
+def escrever_arquivo(de, para, retirar_header=False):
+    with open(de, "r") as arquivo_de:
+        contador = 0
+        data = arquivo_de.readline()
+        while data:
+            with open(para, "a") as arquivo_para:
+                if retirar_header and contador == 0:
+                    contador += 1
+                    data = arquivo_de.readline()
+                    continue
+                arquivo_para.write(data)
+            data = arquivo_de.readline()
+
+
+def main():
+    # Solução do Professor
+    para = "desafios/assets/dados_3.csv"
+    limpar_arquivo(para)
+    escrever_arquivo("desafios/assets/dados_1.csv", para)
+    escrever_arquivo("desafios/assets/dados_2.csv", para, True)
 
 
 if __name__ == "__main__":
